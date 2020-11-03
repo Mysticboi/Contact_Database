@@ -1,2 +1,2 @@
 import sqlite3
-print('Hello Word')
+print('-----Starting Contact_Database-----')
