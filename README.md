@@ -3,22 +3,16 @@ Creating a contact database using Python and SQLite. To run the program run cont
 
 ## Menu
 When the programs starts(database is empty) the user can choose 1 of this 4 options available:
-  1. Inserting into the database : The program then asks for 4inputs: name,adress,phone and email. Then it's added into the Contact Table.
-  1. Finding a contact: The program asks for a name input:
-    - 
-    If the name is found, returns the full informations of the contact.
-    - 
-    If the name is not found, warns the user.
-  1. Deleting a contact: The program asks for a name input:
-    - 
-    If the name is found, deletes the contact.
-    - 
-    If the name is not found, warns the user.
-  1. Updating a contact: The program asks for a name input:
-    - 
-    If the name is found, aks for a new adress,phone and email to update the contact.
-    - 
-    If the name is not found, warns the user.
+  * 1: Inserting into the database : The program then asks for 4inputs: name,adress,phone and email. Then it's added into the Contact Table.
+  * 2: Finding a contact: The program asks for a name input:
+    * If the name is found, returns the full informations of the contact.
+    * If the name is not found, warns the user.
+  * 3: Deleting a contact: The program asks for a name input:
+    * If the name is found, deletes the contact.
+    * If the name is not found, warns the user.
+  * 4:Updating a contact: The program asks for a name input:
+    * If the name is found, aks for a new adress,phone and email to update the contact.
+    * If the name is not found, warns the user.
 
 ### Shape of the Database
 The database is simple, it's composed of a single table Contact which contains 4 columns: Name, Adress,Phone and Email.
