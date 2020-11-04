@@ -10,7 +10,7 @@ When the programs starts(database is empty) the user can choose 1 of this 4 opti
   * 3: Deleting a contact: The program asks for a name input:
     * If the name is found, deletes the contact.
     * If the name is not found, warns the user.
-  * 4:Updating a contact: The program asks for a name input:
+  * 4: Updating a contact: The program asks for a name input:
     * If the name is found, aks for a new adress,phone and email to update the contact.
     * If the name is not found, warns the user.
 
