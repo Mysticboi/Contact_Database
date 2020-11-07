@@ -68,41 +68,37 @@ while True:
     print('\t2: Finding a contact using a name')
     print('\t3: Deleting from the database using a name')
     print('\t4: Updating a contact in the database using a name')
-    while True:
-        try:
-            choice=int(input('Choose an number option from the options listed above: '))
-            break
-        except:
-            print('Enter a valid number. Try again...')
-        
-    if(choice==0):
-        print('-----Exiting Contact_Database-----')
-        conn.close()
-        break
-    
-    elif(choice==1):
-        name=input('Enter name: ')
-        adress=input('Enter adress: ')
-        phone=input('Enter phone: ')
-        email=input('Enter email: ')
-        insert(cur,name,adress,phone,email)
-        conn.commit()
-    
-    elif(choice==2):
-        name=input('Enter name: ')
-        find(cur,name)
-        conn.commit()
-    
-    elif(choice==3):
-        name=input('Enter name: ')
-        delete(cur,name)
-        conn.commit()
+    choice=input('Choose a number to choose an option: ')
 
-    elif(choice==4):
-        name=input('Enter name: ')
-        update(cur,name)
-        conn.commit()
+    if choice in('0','1','2','3','4'):
+
+        if(choice=='0'):
+            print('-----Exiting Contact_Database-----')
+            conn.close()
+            break
+        
+        elif(choice=='1'):
+            name=input('Enter name: ')
+            adress=input('Enter adress: ')
+            phone=input('Enter phone: ')
+            email=input('Enter email: ')
+            insert(cur,name,adress,phone,email)
+            conn.commit()
+        
+        elif(choice=='2'):
+            name=input('Enter name: ')
+            find(cur,name)
+            conn.commit()
+        
+        elif(choice=='3'):
+            name=input('Enter name: ')
+            delete(cur,name)
+            conn.commit()
+
+        elif(choice=='4'):
+            name=input('Enter name: ')
+            update(cur,name)
+            conn.commit()
+    
     else:
-        print('-----Exiting Contact_Database-----')
-        conn.close()
-        break
+        print('Invalid input, try again...')
