@@ -46,11 +46,35 @@ def update(cur,name):
         WHERE name= ? ''',(adress,phone,email,name))
         print("Sucess: Contact has been updated")
 
+def display(cur,limit):
+    cur.execute('SELECT * FROM Contact LIMIT ?',(limit,))
+    rows=cur.fetchall()
+    if len(rows)==0:
+        print("The database is empty")
+    else:
+        if(len(rows)<int(limit)):
+            print('Only {} contacts have been found:'.format(len(rows)))
+        for row in rows:
+            print('\t',row)
+
+
+
 #----------START-------------
+while True:
+    create=input("Should a new database be created, if not the database should already exist (Y/N)?: ")
+    if create in ('Y','N'):
+        if(create=='Y'):
+            create=False
+            break
+        else:
+            create=True
+            break
+    else:
+        print("Invalid input, try again...")
+
 conn=sqlite3.connect('db.sqlite')
 cur=conn.cursor()
-table_exists=False
-if table_exists==False:
+if create==False:
     cur.execute('DROP TABLE IF EXISTS Contact')
     cur.execute('''
     CREATE TABLE Contact (
@@ -68,9 +92,10 @@ while True:
     print('\t2: Finding a contact using a name')
     print('\t3: Deleting from the database using a name')
     print('\t4: Updating a contact in the database using a name')
+    print('\t5: Display some contacts')
     choice=input('Choose a number to choose an option: ')
 
-    if choice in('0','1','2','3','4'):
+    if choice in('0','1','2','3','4','5'):
 
         if(choice=='0'):
             print('-----Exiting Contact_Database-----')
@@ -98,6 +123,18 @@ while True:
         elif(choice=='4'):
             name=input('Enter name: ')
             update(cur,name)
+            conn.commit()
+            
+        elif(choice=='5'):
+            limit=input('How many contacts should be displayed?: ')
+            try:
+                int(limit)
+            except:
+                print("Invalid input")
+                continue
+            if(limit=='0'):
+                continue
+            display(cur,limit)
             conn.commit()
     
     else:

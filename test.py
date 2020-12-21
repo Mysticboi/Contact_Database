@@ -1,4 +1,5 @@
 import sqlite3
+insert()
 
 def insert(cur,name,adress,phone,email):
     try:
